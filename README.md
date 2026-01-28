@@ -20,5 +20,6 @@ Spécialisé dans l’**automatisation des déploiements (MDT)** et le **scripti
 
 ## 📫 Me contacter
 - LinkedIn : (https://www.linkedin.com/in/stefan-h-1a1b53283/)
-- Email : [s_hepperle54@yahoo.fr]
+- Email : s_hepperle54@yahoo.fr
+
 
