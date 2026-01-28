@@ -19,6 +19,5 @@ Spécialisé dans l’**automatisation des déploiements (MDT)** et le **scripti
 *Janvier 2020 – Aujourd’hui*
 
 ## 📫 Me contacter
-- LinkedIn : [[Profil](https://www.linkedin.com/in/stefan-h-1a1b53283/)]
+- [LinkedIn(https://www.linkedin.com/in/stefan-h-1a1b53283/)]
 - Email : [s_hepperle54@yahoo.fr]
-
