@@ -50,6 +50,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
+    padding-top: 80px;
 }
 
 .container {
@@ -61,19 +62,28 @@ body {
 /* ===========================
    HEADER & NAVIGATION
    =========================== */
+/* Header fixe avec la bonne couleur */
 header {
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
-    backdrop-filter: blur(10px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(12px); /* Pour Safari */
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
 nav {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-links {
@@ -121,20 +131,6 @@ nav {
     border-radius: 50%;
     border: 4px solid var(--primary-color);
     object-fit: cover;
-    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
-}
-
-.avatar-placeholder {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    font-weight: bold;
-    color: white;
     box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
 }
 
@@ -394,7 +390,8 @@ footer a:hover {
 }
 
 .timeline-content {
-    background: var(--bg-card);
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
     padding: var(--spacing-lg);
     border-radius: 12px;
     border: 1px solid var(--border-color);
@@ -410,11 +407,39 @@ footer a:hover {
 
 .timeline-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: var(--spacing-md);
+    align-items: start;
     gap: var(--spacing-md);
-    flex-wrap: wrap;
+    margin-bottom: var(--spacing-md);
+}
+
+.header-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.header-text h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.header-text .company {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0 0 0.3rem 0;
+}
+
+.header-text .location {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+    font-style: italic;
+}
+
+.header-text .company,
+.header-text .location {
+    margin: 0;
 }
 
 .timeline-content h3 {
@@ -429,6 +454,25 @@ footer a:hover {
     font-weight: 500;
 }
 
+/* Style du logo */
+.company-logo {
+    flex-shrink: 0;
+    width: 80px;  /* Augmenté de 60px à 80px */
+    height: 80px;
+}
+
+.company-logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    object-fit: contain; /* Important : garde les proportions */
+    background: transparent;
+    padding: 0px; /* Ajoute de l'espace pour que le logo respire */
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    display: block;
+}
+
 .period {
     color: var(--text-muted);
     font-size: 0.95rem;
@@ -436,6 +480,7 @@ footer a:hover {
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: 20px;
     white-space: nowrap;
+    align-self: flex-start;
 }
 
 .missions {
@@ -534,23 +579,25 @@ footer a:hover {
     list-style: none;
 }
 
-.cert-list li {
-    padding: var(--spacing-xs) 0;
-    padding-left: var(--spacing-md);
-    position: relative;
-    color: var(--text-secondary);
-}
-
-.cert-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
 /* Responsive Timeline */
 @media (max-width: 768px) {
+    .timeline-header {
+        flex-wrap: wrap;
+    }
+    
+    .company-logo img {
+        width: 50px;
+        height: 50px;
+        border-width: 2px;
+        padding: 5px;
+    }
+    
+    .period {
+        width: 100%;
+        text-align: center;
+        margin-top: var(--spacing-xs);
+    }
+    
     .timeline::before {
         left: 15px;
     }
@@ -562,16 +609,66 @@ footer a:hover {
     .timeline-item {
         padding-left: 50px;
     }
-    
-    .timeline-header {
-        flex-direction: column;
-    }
-    
-    .period {
-        align-self: flex-start;
-    }
-    
-    .education-grid {
-        grid-template-columns: 1fr;
-    }
+}
+
+/* Localisation */
+.location {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+
+.location::before {
+    content: '📍 ';
+    margin-right: 0.3rem;
+}
+
+/* Description du poste */
+.job-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(37, 99, 235, 0.05);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+/* Blocs de missions */
+.mission-block {
+    margin-bottom: var(--spacing-md);
+}
+
+.mission-title {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid rgba(37, 99, 235, 0.3);
+    display: inline-block;
+}
+
+.mission-block:last-of-type {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Carte certification spécifique */
+.certification-card {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(30, 64, 175, 0.05) 100%);
+    border-left: 4px solid var(--primary-color);
+}
+
+.cert-name {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
+}
+
+.cert-details {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
 }
