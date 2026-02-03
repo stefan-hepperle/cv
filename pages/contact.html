@@ -1,1 +1,103 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Stefan Hepperle</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="experience.html">Expérience</a></li>
+                <li><a href="competences.html">Compétences</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <!-- En-tête de la page -->
+                <div class="page-header">
+                    <h1>Contactez-moi</h1>
+                    <p class="subtitle">N'hésitez pas à me contacter pour échanger sur vos projets ou opportunités</p>
+                </div>
+
+                <!-- Moyens de contact principaux -->
+                <div class="contact-methods">
+                    <a href="mailto:s_hepperle54@yahoo.fr" class="contact-card primary">
+                        <div class="icon">📧</div>
+                        <h3>Email</h3>
+                        <p>s_hepperle54@yahoo.fr</p>
+                        <span class="cta">Envoyer un email</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/stefan-h-1a1b53283/" target="_blank" class="contact-card">
+                        <div class="icon">💼</div>
+                        <h3>LinkedIn</h3>
+                        <p>Connectons-nous</p>
+                        <span class="cta">Voir le profil</span>
+                    </a>
+
+                    <a href="https://github.com/stefan-hepperle" target="_blank" class="contact-card">
+                        <div class="icon">💻</div>
+                        <h3>GitHub</h3>
+                        <p>Mes projets</p>
+                        <span class="cta">Voir les repos</span>
+                    </a>
+                </div>
+
+                <!-- Formulaire de contact rapide -->
+                <div class="quick-contact-section">
+                    <h2>Message rapide</h2>
+                    <p class="form-subtitle">Le formulaire ouvrira votre client de messagerie avec le message pré-rempli</p>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom</label>
+                                <input type="text" id="name" placeholder="Votre nom" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company">Entreprise (optionnel)</label>
+                                <input type="text" id="company" placeholder="Votre entreprise">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Objet</label>
+                            <input type="text" id="subject" placeholder="Objet de votre message" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="6" placeholder="Votre message..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary full-width">
+                            Ouvrir mon client mail
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 — Technicien systèmes & automatisation IT |
+            <a href="https://github.com/stefan-hepperle">GitHub</a> |
+            <a href="https://www.linkedin.com/in/stefan-h-1a1b53283/">LinkedIn</a>
+        </p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
